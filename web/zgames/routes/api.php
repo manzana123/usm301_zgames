@@ -25,3 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //La ruta puede ser post o get (post para enviar cosas a la bd, get para obtener)
 //Route::post|get("endpoint|final de la url",[controlador::class,"metodo"])
 Route::get("marcas/get",[ConsolasController::class,"getMarcas"]);
+
+Route::get("consolas/get",[ConsolasController::class,"getConsolas"]);
+
+Route::get("consolas/post",[ConsolasController::class,"crearConsolas"]);

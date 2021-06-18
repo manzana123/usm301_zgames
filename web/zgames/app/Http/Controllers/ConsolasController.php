@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Consola;
 
 class ConsolasController extends Controller
 {
@@ -18,4 +19,23 @@ class ConsolasController extends Controller
         return $marcas;
 
     }
+
+    public function getConsolas(){
+        //equivalente a hacer un select * from consolas
+        $consolas = Consola::all();
+        return $consolas;
+    }
+
+    public function crearConsolas(){
+        //equivalente a hacer un insert into
+        $consola = new Consola();
+        $consola->nombre = "Nintendo Switch";
+        $consola->marca = "Nintendo";
+        $consola->anno = 2015;
+
+        $consola->save();
+
+        return $consola;
+    }
+
 }
