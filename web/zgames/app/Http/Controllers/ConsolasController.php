@@ -26,12 +26,14 @@ class ConsolasController extends Controller
         return $consolas;
     }
 
-    public function crearConsolas(){
+    public function crearConsolas(Request $request){
         //equivalente a hacer un insert into
+        $input = $request -> all(); //Genera arreglo con todo lo mandado por la interfaz
+        //Interfaz refiriendoce a javascript
         $consola = new Consola();
-        $consola->nombre = "Nintendo Switch";
-        $consola->marca = "Nintendo";
-        $consola->anno = 2015;
+        $consola->nombre = $input["nombre"];
+        $consola->marca = $input["marca"];
+        $consola->anno = $input["anno"];
 
         $consola->save();
 
