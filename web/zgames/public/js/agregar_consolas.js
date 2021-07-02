@@ -14,7 +14,11 @@ const cargarMarcas = async()=>{
 
 }
 
-cargarMarcas();
+//esto asegura la carga de todos los recursos al momento de ejecutar la pagina
+document.addEventListener("DOMContentLoaded", ()=>{
+    cargarMarcas();
+});
+//cargarMarcas();
 
 document.querySelector("#registrar-btn").addEventListener("click", async ()=>{
     let nombre = document.querySelector("#nombre-txt").value;
@@ -30,8 +34,10 @@ document.querySelector("#registrar-btn").addEventListener("click", async ()=>{
     //el controlador crea el modelo
     //el modelo ingresa en la base de datos
     let res = await crearConsolas(consola);
-    Swal.fire("1","2","info");
-
+    await Swal.fire("Consolada creada","Consola creada exitosamente","info");
+    //por el await, la linea que sigue se va a ejecutar solo cuando la persona aprete el ok
+    //redirigir a la otra seccion de la pagina
+    window.location.href = "ver_consolas";
 
 
 }); 
