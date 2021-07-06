@@ -9,7 +9,7 @@ const getConsolas = async ()=>{
 //crearConsolas
 const crearConsolas = async(consola)=>{
     //estructura de un post
-    //(rut, objeto, tipo de objeto)
+    //(ruta, objeto, tipo de objeto)
     let resp = await axios.post("api/consolas/post", consola, {
         headers: {
             'Content-Type': 'application/json'
@@ -17,3 +17,17 @@ const crearConsolas = async(consola)=>{
     });
     return resp.data;
 }
+
+//eliminarConsolas
+const eliminarConsolas = async(id)=>{
+    try{
+        let resp = await axios.post("api/consolas/delete", {id}, {
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        return resp.data == "ok";
+    }catch(e){
+        return false;
+    }
+};
