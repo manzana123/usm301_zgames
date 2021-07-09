@@ -1,3 +1,17 @@
+const cargarMarcas = async ()=>{
+    //1. buscar el filtro-cbx
+    let filtroCbx = document.querySelector("#filtro-cbx");
+
+    //2. ir a buscar las marcas
+    let marcas = await getMarcas();
+    marcas.forEach(m=>{
+        let option = document.createElement("option");
+        option.innerText = m;
+        option.value = m;
+        filtroCbx.appendChild(option);
+    });
+};
+
 const iniciarEliminacion = async function(){
     //1.obtener id a eliminar
     let id = this.idConsola;
@@ -55,7 +69,14 @@ const cargarTabla = (consolas) => {
     
 };
 
+document.querySelector("#filtro-cbx").addEventListener("change", async ()=>{
+    let filtro = document.querySelector("#filtro-cbx").value;
+    let consolas = await getConsolas(filtro);
+    cargarTabla(consolas);
+});
+
 document.addEventListener("DOMContentLoaded", async ()=>{
+    await cargarMarcas();
     let consolas = await getConsolas();
     cargarTabla(consolas);
 });
