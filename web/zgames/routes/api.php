@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use namespace\NombreClase
 */
 use App\Http\Controllers\ConsolasController;
+use App\Http\Controllers\JuegosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::post|get("endpoint|final de la url",[controlador::class,"metodo"])
 Route::get("marcas/get",[ConsolasController::class,"getMarcas"]);
 
+
 Route::get("consolas/get",[ConsolasController::class,"getConsolas"]);
 
 Route::get("consolas/filtrar",[ConsolasController::class,"filtrarConsolas"]);
@@ -33,3 +35,12 @@ Route::get("consolas/filtrar",[ConsolasController::class,"filtrarConsolas"]);
 Route::post("consolas/post",[ConsolasController::class,"crearConsolas"]);
 
 Route::post("consolas/delete",[ConsolasController::class,"eliminarConsolas"]);
+
+
+Route::get("juegos/get",[JuegosController::class,"getJuegos"]);
+
+Route::get("juegos/getJuegosByConsola",[JuegosController::class,"getJuegosByConsola"]);
+
+Route::post("juegos/post",[JuegosController::class,"save"]);
+
+Route::post("juegos/delete",[JuegosController::class,"remove"]);
