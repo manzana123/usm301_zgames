@@ -33,7 +33,7 @@ class JuegosController extends Controller
         $descripcion = $input["descripcion"];
         $consola_id = $input["consola_id"];
 
-        $juego = new Juego{};
+        $juego = new Juego();
         $juego->nombre = $nombre;
         $juego->fecha_lanzamiento = $fecha;
         $juego->descripcion = $descripcion;

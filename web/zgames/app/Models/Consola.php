@@ -11,5 +11,5 @@ class Consola extends Model
 
     public function juegos(){
         return $this->hasMany("App\Models\Juego","consola_id");
-    };
+    }
 }

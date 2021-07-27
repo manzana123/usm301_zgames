@@ -11,5 +11,5 @@ class Juego extends Model
 
     public function consola(){
         return $this->belongsTo("App\Models\Consola","consola_id");
-    };
+    }
 }
